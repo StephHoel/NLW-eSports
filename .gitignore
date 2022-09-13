@@ -196,6 +196,7 @@ dist-ssr
 
 node_modules/
 .expo/
+.expo-shared/
 dist/
 npm-debug.*
 *.jks
