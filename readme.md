@@ -6,8 +6,8 @@
 
 ## Funcionalidades
 
-- [ ]  Buscar seu duo
-- [ ]  Responder ao anúncio
+- [ ]  Publicar anúncio
+- [ ]  Buscar seu Duo
 
 
 ## Autores
