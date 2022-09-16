@@ -14,11 +14,14 @@ import { GameParams } from '../../@types/navigation';
 import { DuoCard, DuoCardProps } from '../../components/DuoCard';
 import { Heading } from '../../components/Heading';
 import { Background } from '../../components/Background';
+import { DuoMatch } from '../../components/DuoMatch';
 
 
 
 export function Game() {
   const [duos, setDuos] = useState<DuoCardProps[]>([]);
+  const [discordDuoSelected, setDiscordDuoSelected] = useState('');
+
 
   const navigation = useNavigation();
   const route = useRoute();
@@ -26,6 +29,12 @@ export function Game() {
   
   function handleGoBack() {
     navigation.goBack();
+  }
+
+  async function GetDiscordUser(adsId: string) {
+    fetch(`http://192.168.0.9:3333/ads/${adsId}/discord`)
+      .then(response => response.json())
+      .then(data => setDiscordDuoSelected(data.discord));
   }
 
   useEffect(() => {
@@ -68,17 +77,17 @@ export function Game() {
         <ScrollView
           showsVerticalScrollIndicator={false}
         >
-          <ScrollView horizontal>
+          <ScrollView>
             <FlatList
               data={duos}
               keyExtractor={item=>item.id}
               renderItem={({ item }) => (
                 <DuoCard
                   data={item}
-                  onConnect={()=>{}}
+                  onConnect={()=> GetDiscordUser(item.id)}
                 />
               )}
-              horizontal={true}
+              horizontal
               style={styles.containerList}
               contentContainerStyle={duos.length > 0 ? styles.contentList : styles.emptyListContent}
               showsHorizontalScrollIndicator={false}
@@ -90,6 +99,12 @@ export function Game() {
             />
           </ScrollView> 
         </ScrollView>
+
+        <DuoMatch
+          visible={discordDuoSelected.length > 0}
+          discord={discordDuoSelected}
+          onClose={()=>setDiscordDuoSelected('')}
+        />
       </SafeAreaView>
     </Background>
   );
