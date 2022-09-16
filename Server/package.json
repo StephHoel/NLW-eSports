@@ -5,9 +5,7 @@
   "main": "src/server.js",
   "scripts": {
     "build": "tsc",
-    "dev": "tsnd --exit-child src/server.ts",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "dev": "tsnd --exit-child src/server.ts"
   },
   "keywords": [],
   "author": "",
