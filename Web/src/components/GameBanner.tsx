@@ -11,7 +11,8 @@ export function GameBanner(props: GameBannerProps) {
 
           <div className="w-full pt-16 pb-4 px-4 bg-game-gradient absolute bottom-0 left-0 right-0">
             <strong className="font-bold text-white block">{props.title}</strong>
-            <span className="text-zinc-300 text-sm block">{props.adsCount == 1 ? `${props.adsCount} anúncio` : props.adsCount == 0 ? 'Sem anúncios' : `${props.adsCount} anúncios`}</span>
+            <span className="text-zinc-300 text-sm block">{
+               props.adsCount == 1 ? `${props.adsCount} anúncio` : props.adsCount == 0 ? 'Sem anúncios' : `${props.adsCount} anúncios`}</span>
           </div>
         </a>
    )
