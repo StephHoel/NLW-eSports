@@ -1,5 +1,5 @@
 import { useNavigation } from '@react-navigation/native';
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Image, FlatList, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context'
 

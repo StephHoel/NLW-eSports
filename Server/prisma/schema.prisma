@@ -29,3 +29,9 @@ model Ad {
 
   game Game @relation(fields: [gameId], references: [id])
 }
+
+model WeekDays {
+  id              String   @id
+  dia             String
+  sigla           String
+}
